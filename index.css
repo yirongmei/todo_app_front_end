@@ -1,0 +1,10 @@
+html {
+    font-family: sans-serif;
+}
+
+.priority-high{
+    color: red;
+}
+span {
+    color: black;
+}
