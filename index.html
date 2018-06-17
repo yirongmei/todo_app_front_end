@@ -3,6 +3,24 @@
   <head>
     <title>Yi Rong's To-do List</title>
       <link rel="stylesheet"  href="/index.css"/>
+      <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+      <link href="/index.js" type="/javascript"/>
+      
+      <script>
+        $(document).ready(function(){
+           $("#add-new-todo-button").click(function(){
+               var newTodoBlock = $(this).closest("#new-todo-block")
+               var newTodo = newTodoBlock.find("#new-todo-description")
+               var minuteEstimate = newTodoBlock.find("#new-todo-minutes-estimate")
+               
+               $("ul").append("<li> <input type='checkbox'/> " + newTodo.val() + " <span class='minutes-Estimate'>" + minuteEstimate.val() + " minutes</span> </li>")
+                 
+                 
+               newTodo.val("")
+               minuteEstimate.val("")
+             })
+           })
+    </script>
   </head>
     
   <body>
@@ -29,9 +47,10 @@
         Go to sleep <span>8 hours</span>
       </li> 
     </ul>
-    
-    <input type="text" placeholder="Add a new to-do...">
-    <input type="number" placeholder="minutes">
-    <input type="submit" value="Add to do...">
+    <div id="new-todo-block">
+      <input type="text" id="new-todo-description" placeholder="Add a new to-do...">
+      <input type="number" id= "new-todo-minutes-estimate" placeholder="minutesEstimate">
+      <input type="submit" id="add-new-todo-button" value="Add to do...">
+    </div>
   </body>
 </html>
